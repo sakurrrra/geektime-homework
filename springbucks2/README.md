@@ -12,13 +12,15 @@
 
 >  xml配置bean
 
-![image-20220619174825596](C:\Users\13936\AppData\Roaming\Typora\typora-user-images\image-20220619174825596.png)
+![image-20220619174825596](D:\github\geektime-homework\images\image-20220619174825596.png)
 
-![image-20220619174855632](C:\Users\13936\AppData\Roaming\Typora\typora-user-images\image-20220619174855632.png)
+![image-20220619174825596](C:\Users\13936\AppData\Roaming\Typora\typora-user-images\image-20220619174825596.png
+
+![image-20220619174855632](D:\github\geektime-homework\images\image-20220619174855632.png)
 
 > Annotation配置bean
 
-![image-20220619174957919](C:\Users\13936\AppData\Roaming\Typora\typora-user-images\image-20220619174957919.png)
+![image-20220619174957919](D:\github\geektime-homework\images\image-20220619174957919.png)
 
 ### 第二题
 
@@ -26,17 +28,17 @@
 
 http://localhost:8080/coffee/list
 
-![image-20220619175201412](C:\Users\13936\AppData\Roaming\Typora\typora-user-images\image-20220619175201412.png)
+![image-20220619175201412](D:\github\geektime-homework\images\image-20220619175201412.png)
 
 http://localhost:8080/coffee/name/espresso
 
-![image-20220619175212786](C:\Users\13936\AppData\Roaming\Typora\typora-user-images\image-20220619175212786.png)
+![image-20220619175212786](D:\github\geektime-homework\images\image-20220619175212786.png)
 
 > 返回xml数据
 
 http://localhost:8080/coffee/name-xml/espresso
 
-![image-20220619175227217](C:\Users\13936\AppData\Roaming\Typora\typora-user-images\image-20220619175227217.png)
+![image-20220619175227217](D:\github\geektime-homework\images\image-20220619175227217.png)
 
 ### 第三题
 
@@ -44,10 +46,21 @@ http://localhost:8080/coffee/name-xml/espresso
 
 http://localhost:8080/coffee/list
 
-![image-20220619175201412](C:\Users\13936\AppData\Roaming\Typora\typora-user-images\image-20220619175201412.png)
+![image-20220619175201412](D:\github\geektime-homework\images\image-20220619175201412.png)
 
 > webservice调用
 
-![image-20220619183227756](C:\Users\13936\AppData\Roaming\Typora\typora-user-images\image-20220619183227756.png)
+```sql
+    public static void main(String[] args) {
+        JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
+        factory.setServiceClass(CoffeeServiceI.class);
+        factory.setAddress("http://localhost:8080/ws/CoffeeService?wsdl");
+        CoffeeServiceI client = (CoffeeServiceI) factory.create();
+        System.out.println(client.getCoffeeByName("espresso"));
+    }
+```
 
-![image-20220619183356520](C:\Users\13936\AppData\Roaming\Typora\typora-user-images\image-20220619183356520.png)
+![image-20220619183227756](D:\github\geektime-homework\images\image-20220619183227756.png)
+
+![image-20220619183356520](D:\github\geektime-homework\images\image-20220619183356520.png)
+
